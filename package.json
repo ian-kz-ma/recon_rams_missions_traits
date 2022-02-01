@@ -1,0 +1,30 @@
+{
+  "name": "recon_rams_utility",
+  "version": "1.0.0",
+  "description": "Recon Rams Utility",
+  "main": " server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ian-kz-ma/recon_rams_utility.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mysql",
+    "restapi"
+  ],
+  "author": "ian.kz.ma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ian-kz-ma/recon_rams_utility/issues"
+  },
+  "homepage": "https://github.com/ian-kz-ma/recon_rams_utility#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1"
+  }
+}
