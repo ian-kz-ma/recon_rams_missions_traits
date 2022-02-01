@@ -4,8 +4,6 @@ const cors = require("cors");
 const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 8080;
-//const PORT = process.env.PORT || 3001;
-//const merkle = require('./merkleTree.js');
 
 var corsOptions = {
   origin: "http://localhost:8081"
@@ -19,20 +17,12 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-// simple route
+// test route
 app.get("/", (req, res) => {
   res.json({ message: "Test Response Success" });
 });
 
-// app.get("/api/merkle", (req, res) => {
-//     res.json({ message: merkle.getMerkleInfo(req.query.address) });
-// });
-
-// All other GET requests not handled before will return our React app
-// app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
-// });
-
+// main routes
 require("./app/routes/test.routes.js")(app);
 
 // set port, listen for requests

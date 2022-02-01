@@ -1,3 +1,6 @@
+//NOTE: We use mysql2 due to an issue with the main version of msql having authentication issues
+//Please see: https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server
+
 const mysql = require("mysql2");
 const dbConfig = require("../config/db.config.js");
 
