@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Recon Rams Test" });
+  res.json({ message: "Test Response Success" });
 });
 
 // app.get("/api/merkle", (req, res) => {
@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 //     res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
 // });
 
-//require("./app/routes/rr-utility.routes.js")(app);
+require("./app/routes/test.routes.js")(app);
 
 // set port, listen for requests
 app.listen(PORT, () => {
