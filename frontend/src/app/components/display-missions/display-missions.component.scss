@@ -1,0 +1,27 @@
+.tab-content {
+    color : black;
+    background-color: white !important;
+    padding : 5px 15px;
+  }
+
+.nav-pills > li > a{
+    color: black;
+    background-image: linear-gradient(to bottom right, rgb(95, 93, 93), rgb(49, 47, 47));
+    background-color: rgb(117, 114, 114);
+    padding: 4px 4px 4px 4px;    
+    border-radius: 4px 4px 0px 0px;
+}
+
+ul > .active > a{
+    background-color: lightgray;
+    background-image: linear-gradient(to bottom right, rgb(179, 177, 177), rgb(95, 93, 93));
+    color:black;
+}
+ul > li > a:hover{
+    background-color: lightgray;
+    background-image: linear-gradient(to bottom right, rgb(179, 177, 177), rgb(95, 93, 93));
+    color:black;
+}
+ul > li {
+    margin: .5px;
+}
