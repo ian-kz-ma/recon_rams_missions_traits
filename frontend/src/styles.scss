@@ -43,6 +43,15 @@ body {
     margin: 0;
     color:white;
     font-family: Impact, sans-serif;
+    height: 100%;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.max-height {
+  height: 100vh;
+}
+.limit-height {
+  max-height: 100%;
+}

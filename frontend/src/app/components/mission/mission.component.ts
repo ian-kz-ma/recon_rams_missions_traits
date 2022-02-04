@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ITest, TestService as TestService } from '../../../app/services/test.service';
+import {TestService as TestService } from '../../../app/services/test.service';
+import { ITest } from '../../models/ITest';
 @Component({
   selector: 'mission',
   templateUrl: './mission.component.html',
@@ -8,7 +9,6 @@ import { ITest, TestService as TestService } from '../../../app/services/test.se
 export class MissionComponent implements OnInit {
 
   test: ITest | undefined;
-  placeholder: IPlaceHolder | undefined;
 
   constructor(private testService: TestService) { }
 
@@ -32,9 +32,3 @@ export class MissionComponent implements OnInit {
 
 
 
-interface IPlaceHolder {
-  userId: number,
-  id: number,
-  title: string,
-  completed: boolean
-}

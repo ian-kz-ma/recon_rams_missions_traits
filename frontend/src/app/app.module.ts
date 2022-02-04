@@ -10,6 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MissionPanelComponent } from './components/mission-panel/mission-panel.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     DisplayMissionsComponent,
     RamSelectorComponent,
     MissionComponent,
-    HomeComponent
+    HomeComponent,
+    MissionPanelComponent
   ],
   imports: [
     BrowserModule,

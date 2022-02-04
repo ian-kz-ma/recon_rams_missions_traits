@@ -1,24 +1,23 @@
-<ul class="nav nav-pills">
+<ul class="nav nav-pills pull-right ">
     <li class="active">
-        <a href="#1a" data-toggle="tab">Overview</a>
+        <a href="#1a" data-toggle="tab">Available Missions</a>
     </li>
-    <li><a href="#2a" data-toggle="tab">Using nav-pills</a>
+    <li><a href="#2a" data-toggle="tab">In Progress</a>
     </li>
-    <li><a href="#3a" data-toggle="tab">Applying clearfix</a>
+    <li><a href="#3a" data-toggle="tab">Mission History</a>
     </li>
    
 </ul>
 
-<div class="tab-content clearfix">
-    <div fxFlex="1 1 auto" class="tab-pane active" id="1a">
-        <h3>Content's background color is the same for the tab</h3>
+<div class="tab-content clearfix" fxLayout="column">
+    <div  class="tab-pane active" id="1a">
+        <mission-panel  [displayMode]="'Available'" ></mission-panel>
     </div>
-    <div class="tab-pane" id="2a">
-        <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab
-        </h3>
+    <div  class="tab-pane" id="2a">
+        <mission-panel [displayMode]="'In Progress'" ></mission-panel>
     </div>
-    <div class="tab-pane" id="3a">
-        <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
+    <div  class="tab-pane" id="3a">
+        <mission-panel [displayMode]="'My Missions'" ></mission-panel>
     </div>
   
 </div>

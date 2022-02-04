@@ -1,21 +1,21 @@
 <!-- Create layout with flexbox -->
 <div fxFlex="1 1 auto" fxLayout="column" >
-  <div fxFlex="0 0 auto" fxLayoutAlign="end" fxLayout="row" class="nav">
+  <div  fxLayoutAlign="end" fxLayout="row" class="nav">
     <h1 *ngFor="let page of pages"  (click)="navClick(page)" [ngClass]="selectedPage == page ? 'selectedNav' : ''" class="nav-items">{{page}}
     </h1>
   </div>
   <img src="/assets/images/RR_WEBSITE_REDLOGO.jpg" alt="RR logo" class="navLogo">
-  <img fxFlex="0 0 auto" src="/assets/images/banner.jpg" alt="Banner" class="banner">
+  <img  src="/assets/images/banner.jpg" alt="Banner" class="banner">
   
   
  
 
-  <div fxFlex="1 1 auto" class="pageDisplay">
+  <div  class="limit-width page-display" >
     <ng-container [ngSwitch]="selectedPage">
-    <div fxFill *ngSwitchCase="'Home'">
-      <mission fxFill></mission>
+    <div  *ngSwitchCase="'Home'">
+      <mission ></mission>
     </div>
-    <display-missions fxFill *ngSwitchCase="'Missions'"></display-missions>
+    <display-missions *ngSwitchCase="'Missions'" class="limit-width limit-height" ></display-missions>
   </ng-container>
   </div>
 </div> 
