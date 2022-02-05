@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IMission } from '../../../app/models/IMission';
 @Component({
   selector: 'mission-panel',
@@ -33,7 +33,7 @@ export class MissionPanelComponent implements OnInit {
     }
   ];
   @Input('displayMode') displayMode : "Available" | "In Progress" | "My Missions" = "Available";
-
+  @Output() missionSelected: EventEmitter<any> = new EventEmitter();
 
 
   constructor() { }
@@ -42,6 +42,10 @@ export class MissionPanelComponent implements OnInit {
 
   }
 
+  missionClick(mission : IMission) {
+    this.missionSelected.emit(mission);
+    console.log(mission);
+  }
 }
 
 

@@ -1,21 +1,24 @@
 <!-- Create layout with flexbox -->
-<div fxFlex="1 1 auto" fxLayout="column" >
+<div fxFlex="1 1 100%" fxLayout="column" >
   <div  fxLayoutAlign="end" fxLayout="row" class="nav">
     <h1 *ngFor="let page of pages"  (click)="navClick(page)" [ngClass]="selectedPage == page ? 'selectedNav' : ''" class="nav-items">{{page}}
     </h1>
   </div>
   <img src="/assets/images/RR_WEBSITE_REDLOGO.jpg" alt="RR logo" class="navLogo">
-  <img  src="/assets/images/banner.jpg" alt="Banner" class="banner">
+  <img  *ngIf="selectedPage != 'Marketplace' && selectedPage != 'Purchases'" src="/assets/images/banner.jpg" alt="Banner" class="banner">
   
-  
+  <button (click)= "openMetaMask()"> Connect Wallet</button>
+
  
 
-  <div  class="limit-width page-display" >
+  <div  class="bg limit-width" >
     <ng-container [ngSwitch]="selectedPage">
-    <div  *ngSwitchCase="'Home'">
-      <mission ></mission>
+    <div fxFill="1 1 auto" class="bg" *ngSwitchCase="'Home'">
+      <mission  ></mission>
     </div>
-    <display-missions *ngSwitchCase="'Missions'" class="limit-width limit-height" ></display-missions>
+    <marketplace class="marketplace limit-width" *ngSwitchCase="'Marketplace'"></marketplace>
+    <display-missions *ngSwitchCase="'Missions'" class="bg limit-width height" ></display-missions>
+    <purchases *ngSwitchCase="'Purchases'"></purchases>
   </ng-container>
   </div>
 </div> 

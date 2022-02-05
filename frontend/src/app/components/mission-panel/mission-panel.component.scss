@@ -14,7 +14,11 @@
     font-weight: 700;
     color: black;
     margin: 0;
-
+     user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 .child-panel {
     border: 2px solid black;
@@ -25,7 +29,7 @@
     margin-right: 7%;
     margin-top: 1%;
     margin-bottom: 1%;
-
+    cursor: pointer;
     height: 100% !important;
 }
 

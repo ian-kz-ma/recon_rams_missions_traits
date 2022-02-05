@@ -1,5 +1,5 @@
     <div fxFlex="1 1 auto" fxLayout="row" class="panel parent-panel panel-default">
-        <div fxFlex="1 1 auto" fxLayout="column"  *ngFor="let mission of missions" class="panel panel-default child-panel">
+        <div (click)="missionClick(mission)" fxFlex="1 1 auto" fxLayout="column"  *ngFor="let mission of missions" class="panel panel-default child-panel">
             <h1  class="mission-header">{{mission.title}}</h1>
             <img  [src]="mission.imageUrl" [alt]="mission.title">
 

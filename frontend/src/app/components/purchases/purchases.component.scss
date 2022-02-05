@@ -1,0 +1,57 @@
+option {
+    color: black;
+    font-size: medium;
+    text-align: center;
+    font-weight: 450;
+}
+select {
+    width: 50%;
+    font-weight: 500;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: black;
+}
+.wallet-entry {
+    border: 2px solid dimgray;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: lightgrey;
+}
+h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: small;
+    color: white;
+    margin: 0;
+    margin-top: 1%;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+p {
+    color: black;
+    display: inline;
+    padding: 1%;
+}
+.counter {
+    font-weight: 600;
+}
+.wallet {
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    select {
+        width: 100%;
+        margin: 0;
+    }
+
+    .wallet-entry {
+        width: 100%;
+        margin: 0;
+    }
+}

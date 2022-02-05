@@ -1,0 +1,17 @@
+
+<div fxFlex="1 1 100%" fxLayout="column">
+<div fxFlex="0 0 auto">
+    <h1 class="marketplace-header">Recon Rams Marketplace</h1>
+    <h1 class="balance-header" >My Balance: 20,000</h1>
+</div>
+<div class="market-container" fxFlex="1 1 auto" fxLayoutAlign="start" fxLayout="row">
+    <div fxFlex="1 1 24%" fxLayout="column" *ngFor="let listing of listings" class="panel panel-default child-panel">
+        <h1 class="listing-header">{{listing.name}}</h1>
+        <img [src]="listing.imageUrl" [alt]="listing.name">
+        <h1 class="listing-header">Stock:{{listing.currentStock}}/{{listing.initStock}}</h1>
+        <h1 class="listing-header">Price:{{listing.cost.toLocaleString("en-US")}}</h1>
+        <p class="description">{{listing.description}}</p>
+        <button *ngIf="listing.currentStock > 0" class="button">Buy Now</button>
+        <button *ngIf="listing.currentStock <= 0" class="button" disabled="true">Out of Stock</button>
+    </div>
+</div>

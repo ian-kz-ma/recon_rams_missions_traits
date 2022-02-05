@@ -11,20 +11,32 @@
 }
 .limit-width {
     max-width: 100vw;
+    height: fit-content;
 }
-.page-display {
-    max-height: 45vh;
-}
+
 .nav {
     color:black;
+    background-color: black;
 }
 @media (max-width: 700px) {
    .nav-items {
-    font-weight: 400;
-    border: 2px solid rgb(49, 47, 47);
-    padding: 0px 1px 0px 1px;
+    font-size: medium !important;
   }
 
+}
+@media (max-width: 600px) {
+    .nav-items {
+     font-size: small !important;
+   }
+ 
+ }
+.page-display {
+    height: 100%;
+}
+.marketplace {
+    background-color: white !important;
+    height: 100%;
+    width: 100%;
 }
 .nav-items {
     color: black;

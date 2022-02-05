@@ -1,0 +1,97 @@
+.panel {
+    background-color: dimgray;
+    margin: 0px;
+    margin-bottom: 0;
+    border-top: 2px solid black;
+}
+.market-container {
+    display: flex;
+  flex-wrap: wrap;
+  height: stretch;
+  margin-left: 2%;
+  width: 100%;
+}
+.parent-panel {
+    
+    margin-bottom: 0;
+}
+.description {
+    background-color: lightgray;
+    border: 1px solid black;
+    margin-bottom: auto;
+    border-radius: 5px;
+    text-align: center;
+    height: 100%;
+    font-size: small;
+}
+@media (max-width: 700px) {
+    .description {
+     font-size: x-small !important;
+     font-weight:400;
+   }
+ 
+ }
+.listing-header{
+    text-align: center;
+    font-weight: 600;
+    font-size: small;
+    color: black;
+    margin: 0;
+     user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+.marketplace-header{
+    text-align: center;
+    width: 100vw;
+    display: inline-block;
+    font-weight: 800;
+    color: black;
+    margin: 0;
+     user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+.balance-header{
+    text-align: center;
+    width: 100vw;
+    display: inline-block;
+    font-size: medium;
+    font-weight: 700;
+    color: black;
+    margin: 0;
+     user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+.child-panel {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    max-width: 10%;
+    cursor: pointer;
+}
+
+img {
+    max-height: 75%;
+    max-width: 75%;
+   margin-left: auto;
+   margin-right: auto;
+
+
+}
+p {
+    color: black;
+}
+button {
+    background-color: dimgray;
+    color: black;
+    font-weight: 300;
+    border-radius: 5px;
+}

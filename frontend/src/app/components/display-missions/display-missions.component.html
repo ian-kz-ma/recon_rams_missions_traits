@@ -1,23 +1,46 @@
-<ul class="nav nav-pills pull-right ">
-    <li class="active">
-        <a href="#1a" data-toggle="tab">Available Missions</a>
-    </li>
-    <li><a href="#2a" data-toggle="tab">In Progress</a>
-    </li>
-    <li><a href="#3a" data-toggle="tab">Mission History</a>
-    </li>
-   
-</ul>
+<ng-container *ngIf="displayMode == 'Missions'">
+    <ul class="nav nav-pills pull-right ">
+        <li class="active">
+            <a href="#1a" data-toggle="tab">Available Missions</a>
+        </li>
+        <li><a href="#2a" data-toggle="tab">In Progress</a>
+        </li>
+        <li><a href="#3a" data-toggle="tab">Mission History</a>
+        </li>
 
-<div class="tab-content clearfix" fxLayout="column">
-    <div  class="tab-pane active" id="1a">
-        <mission-panel  [displayMode]="'Available'" ></mission-panel>
+    </ul>
+
+    <div class="tab-content clearfix" fxLayout="column">
+        <div class="tab-pane active" id="1a">
+            <mission-panel (missionSelected)="selectedMissionEventHandler($event)" [displayMode]="'Available'">
+            </mission-panel>
+        </div>
+        <div class="tab-pane" id="2a">
+            <mission-panel [displayMode]="'In Progress'"></mission-panel>
+        </div>
+        <div class="tab-pane" id="3a">
+            <mission-panel [displayMode]="'My Missions'"></mission-panel>
+        </div>
+
     </div>
-    <div  class="tab-pane" id="2a">
-        <mission-panel [displayMode]="'In Progress'" ></mission-panel>
-    </div>
-    <div  class="tab-pane" id="3a">
-        <mission-panel [displayMode]="'My Missions'" ></mission-panel>
-    </div>
-  
-</div>
+</ng-container>
+<ng-container *ngIf="displayMode == 'SelectedMission'">
+
+    <h1 fxFlex="0 0 auto" class="text-center typed-out">{{displayText}}</h1>
+    <p id="demo"></p>
+</ng-container>
+
+
+<script>
+    var i = 0;
+var txt = 'Lorem ipsum typing effect!'; /* The text */
+var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
