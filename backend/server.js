@@ -24,6 +24,7 @@ app.get("/", (req, res) => {
 
 // main routes
 require("./app/routes/test.routes.js")(app);
+require("./app/routes/marketplace.routes.js")(app);
 
 // set port, listen for requests
 app.listen(PORT, () => {
