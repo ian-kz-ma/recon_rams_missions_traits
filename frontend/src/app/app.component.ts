@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-declare let window: any;
-declare let web3: any;
+// import { Web3Service } from './services/web3/web3.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,26 +9,19 @@ declare let web3: any;
 
 export class AppComponent {
   title = 'Recon Rams';
-  selectedPage: string = "Home";
-  pages: Array<string> = ["Home", "Missions", "Evolve", "Marketplace", "Purchases"];
+  selectedPage : string = "Home";
+  pages : Array<string>  = ["Home", "Missions", "Evolve", "Marketplace", "Purchases"];
 
   constructor() {
 
-
   }
-  ngOnInit() {
-   
-  }
-  async openMetaMask() {
-    web3.eth.coinbase
-    console.log(window.ethereum.isMetaMask)
-    window.ethereum.request({ method: 'eth_requestAccounts' }).subscribe();
+  openMetaMask(){
     // this.web3service.openMetamask().then(resp =>{
     //     console.log(resp);
     // })
   }
 
-  public navClick(page: string) {
+  public navClick(page : string) {
     this.selectedPage = page;
     console.log(this.selectedPage);
   }
