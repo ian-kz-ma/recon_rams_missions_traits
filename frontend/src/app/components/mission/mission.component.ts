@@ -17,14 +17,14 @@ export class MissionComponent implements OnInit {
   }
 
   showTest(id: number) {
-    this.testService.getTest(id).subscribe((data: ITest) => { 
-      this.test = {
-      id: (data as any).id,
-      name: (data as any).name,
-      age: (data as any).age
-      }
-      console.log(this.test);
-    });
+    // this.testService.getTest(id).subscribe((data: ITest) => { 
+    //   this.test = {
+    //   id: (data as any).id,
+    //   name: (data as any).name,
+    //   age: (data as any).age
+    //   }
+    //   console.log(this.test);
+    // });
   }
 
 }
