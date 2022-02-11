@@ -35,14 +35,23 @@ $ReconRams-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 .bg {
-    background-color: black;
+  background-color: black;
 }
 
 
 body {
     margin: 0;
     color:white;
-    font-family: Impact, sans-serif;
+    font-family: Georgia;
+    height: 100%;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Georgia }
+
+
+.max-height {
+  height: 100vh;
+}
+.height {
+  height: 100%;
+}

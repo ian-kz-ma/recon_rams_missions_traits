@@ -1,24 +1,46 @@
-<ul class="nav nav-pills">
-    <li class="active">
-        <a href="#1a" data-toggle="tab">Overview</a>
-    </li>
-    <li><a href="#2a" data-toggle="tab">Using nav-pills</a>
-    </li>
-    <li><a href="#3a" data-toggle="tab">Applying clearfix</a>
-    </li>
-   
-</ul>
+<ng-container *ngIf="displayMode == 'Missions'">
+    <ul class="nav nav-pills pull-right ">
+        <li class="active">
+            <a href="#1a" data-toggle="tab">Available Missions</a>
+        </li>
+        <li><a href="#2a" data-toggle="tab">In Progress</a>
+        </li>
+        <li><a href="#3a" data-toggle="tab">Mission History</a>
+        </li>
 
-<div class="tab-content clearfix">
-    <div fxFlex="1 1 auto" class="tab-pane active" id="1a">
-        <h3>Content's background color is the same for the tab</h3>
+    </ul>
+
+    <div class="tab-content clearfix" fxLayout="column">
+        <div class="tab-pane active" id="1a">
+            <mission-panel (missionSelected)="selectedMissionEventHandler($event)" [displayMode]="'Available'">
+            </mission-panel>
+        </div>
+        <div class="tab-pane" id="2a">
+            <mission-panel [displayMode]="'In Progress'"></mission-panel>
+        </div>
+        <div class="tab-pane" id="3a">
+            <mission-panel [displayMode]="'My Missions'"></mission-panel>
+        </div>
+
     </div>
-    <div class="tab-pane" id="2a">
-        <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab
-        </h3>
-    </div>
-    <div class="tab-pane" id="3a">
-        <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
-    </div>
-  
-</div>
+</ng-container>
+<ng-container *ngIf="displayMode == 'SelectedMission'">
+
+    <h1 fxFlex="0 0 auto" class="text-center typed-out">{{displayText}}</h1>
+    <p id="demo"></p>
+</ng-container>
+
+
+<script>
+    var i = 0;
+var txt = 'Lorem ipsum typing effect!'; /* The text */
+var speed = 50; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>

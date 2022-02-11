@@ -1,4 +1,5 @@
 const Test = require("../models/test.model.js");
+const jwt = require('jsonwebtoken');
 
 // Create and Save a new test
 exports.create = (req, res) => {
@@ -29,19 +30,25 @@ exports.create = (req, res) => {
 
 // Find a single Tutorial with a id
 exports.findOne = (req, res) => {
-    Test.findById(req.params.id, (err, data) => {
-        if (err) {
-            if (err.kind === "not_found") {
-                res.status(404).send({
-                    message: `Unable to get test with id ${req.params.id}.`
-                });
-            } else {
-                res.status(500).send({
-                    message: "Error retrieving test with id " + req.params.id
-                });
-            }
-        } else res.send(data);
-    });
+    console.log(jwt.verify(req.headers["authorization"],"this is the secret key" ));
+    if(req.headers["authorization"] != null) {
+        if(jwt.verify(req.headers["authorization"],"this is the secret key" )) {
+            Test.findById(req.params.id, (err, data) => {
+                if (err) {
+                    if (err.kind === "not_found") {
+                        res.status(404).send({
+                            message: `Unable to get test with id ${req.params.id}.`
+                        });
+                    } else {
+                        res.status(500).send({
+                            message: "Error retrieving test with id " + req.params.id
+                        });
+                    }
+                } else res.send(data);
+            });
+        }
+    }
+
 };
 
 // Update a Tutorial identified by the id in the request
