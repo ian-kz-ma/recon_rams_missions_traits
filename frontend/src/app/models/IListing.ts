@@ -1,10 +1,12 @@
 export interface IListing {
-    id: number,
+    id: string,
     name: string,
     description: string,
-    initStock: number,
-    currentStock: number,
-    cost: number,
-    imageUrl?: string
-    collectedWallets: Array<string>
+    init_stock: number,
+    current_stock: number,
+    price: number,
+    image_url?: string,
+    enabled: boolean,
+    listing_time: Date
 }
+

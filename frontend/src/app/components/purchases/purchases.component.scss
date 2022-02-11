@@ -1,30 +1,57 @@
 option {
-    color: black;
+    color: whitesmoke;
+    background-color: rgb(37, 35, 35);
     font-size: medium;
-    text-align: center;
+    text-align: left;
     font-weight: 450;
 }
+.bg-img {
+    // margin-left: 2.5%;
+    // margin-right: 2.5%;
+    // margin-top: 1%;
+    background-image: url("../../../assets/images/RR_WEBSITE_BG_1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
 select {
+    
+    font-weight: 600;
+    font-size: medium;
+    padding-left: 3%;
+    width: 100%;
+    border-radius: 0px;
+    border: 2px solid black;
+    background-color: black;
+    color: whitesmoke;
+}
+.border {
+    border: 3px solid black;
+    border-radius: 5px;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
     width: 50%;
-    font-weight: 500;
+    margin-top: 5%;
     margin-left: 25%;
     margin-right: 25%;
-    color: black;
+    width: auto;
+    height: auto;
 }
 .wallet-entry {
-    border: 2px solid dimgray;
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    background-color: lightgrey;
+    border: 1px solid black;
+    background-color: rgb(37, 35, 35);
 }
 h1 {
+    background-color: rgb(173, 54, 54);
     text-align: center;
-    font-weight: 600;
-    font-size: small;
-    color: white;
+    font-weight: 700;
+    font-size: large;
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
     margin: 0;
-    margin-top: 1%;
     user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
@@ -33,15 +60,21 @@ h1 {
 }
 
 p {
-    color: black;
+    color: whitesmoke;
     display: inline;
     padding: 1%;
 }
 .counter {
     font-weight: 600;
+    font-size: medium;
+    text-shadow: 2px 2px black;
 }
 .wallet {
     text-align: center;
+    font-weight: 500;
+    font-size: medium;
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
 }
 
 @media (max-width: 700px) {

@@ -7,18 +7,22 @@
   <img src="/assets/images/RR_WEBSITE_REDLOGO.jpg" alt="RR logo" class="navLogo">
   <img  *ngIf="selectedPage != 'Marketplace' && selectedPage != 'Purchases'" src="/assets/images/banner.jpg" alt="Banner" class="banner">
   
-  <button (click)= "openMetaMask()"> Connect Wallet</button>
+  <button class="float" *ngIf="authService.state =='NOT CONNECTED'" (click)= "openMetaMask()"><label>Connect Wallet</label></button>
+  <button class="float" *ngIf="authService.state =='CONNECTED'"(click)= "openMetaMask()"><label>
+    {{authService.wallet.substring(0, 5) + "...." 
+    + authService.wallet.substring(authService.wallet.length - 5)}}</label></button>
 
+  <!-- <button (click)= "getTest()"> getTest</button> -->
  
 
-  <div  class="bg limit-width" >
+  <div  class="bg limit-width fill-height" >
     <ng-container [ngSwitch]="selectedPage">
     <div fxFill="1 1 auto" class="bg" *ngSwitchCase="'Home'">
       <mission  ></mission>
     </div>
-    <marketplace class="marketplace limit-width" *ngSwitchCase="'Marketplace'"></marketplace>
+    <marketplace id="market" class="marketplace limit-width" *ngSwitchCase="'Marketplace'"></marketplace>
     <display-missions *ngSwitchCase="'Missions'" class="bg limit-width height" ></display-missions>
-    <purchases *ngSwitchCase="'Purchases'"></purchases>
+    <purchases fxFlex="1 1 auto" *ngSwitchCase="'Purchases'"></purchases>
   </ng-container>
   </div>
 </div> 

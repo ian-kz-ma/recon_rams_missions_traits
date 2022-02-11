@@ -4,13 +4,18 @@ module.exports = app => {
     var router = require("express").Router();
 
     // Get marketplace listing by id
-    router.get("/:id", marketplace.getId);
+    // router.get("/:id", marketplace.getId);
 
-    // Get all marketplace listings
-    router.get("/", marketplace.getAll)
+    // Get all active marketplace listings 
+    router.get("/listings", marketplace.getAllListings)
 
+    // Get all marketplace purchases
+    router.get("/purchases", marketplace.getAllPurchases)
+
+
+  router.put("/buy/:id/:wallet",  marketplace.buy);
     // Update a marketplace listing
-    router.put("/:id", marketplace.updateId);
+    // router.put("/:id", marketplace.updateId);
 
     //*** BASE URI REQUIRED FOR EVERY API CALL ***
     //

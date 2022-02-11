@@ -1,10 +1,14 @@
+<div fxFlex="1 1 auto" class="bg-img">
+    <div class="border">
+        <h1>Select a listing...</h1>
+        <select [(ngModel)]="selectedListing">
+            <option *ngFor="let listing of listings" [ngValue]="listing">{{listing.name}}</option>
+        </select>
 
-<h1>Select a listing...</h1>
-<select [(ngModel)]="selectedListing">
-    <option *ngFor="let listing of listings" [ngValue]="listing">{{listing.name}}</option>
-</select>
 
-
-<div class="wallet-entry" *ngFor="let wallet of selectedListing.collectedWallets; index as i">
-    <p class="counter">{{i+1}}</p><p class="wallet">{{wallet}}</p>
+        <div class="wallet-entry" *ngFor="let purchase of purchasesToDisplay; index as i">
+            <p class="counter">{{i+1}}</p>
+            <p class="wallet">{{purchase.wallet}}</p>
+        </div>
+    </div>
 </div>

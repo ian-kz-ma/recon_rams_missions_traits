@@ -1,17 +1,60 @@
 
-<div fxFlex="1 1 100%" fxLayout="column">
+<div class="bg-img" fxLayout="column">
 <div fxFlex="0 0 auto">
     <h1 class="marketplace-header">Recon Rams Marketplace</h1>
-    <h1 class="balance-header" >My Balance: 20,000</h1>
+    <h1 *ngIf="user" class="balance-header" >My Balance: {{user.token_balance.toLocaleString("en-US")}}</h1>
+    <h1 *ngIf="!user" class="balance-header" >Balance: Wallet Not Connected</h1>
 </div>
 <div class="market-container" fxFlex="1 1 auto" fxLayoutAlign="start" fxLayout="row">
     <div fxFlex="1 1 24%" fxLayout="column" *ngFor="let listing of listings" class="panel panel-default child-panel">
         <h1 class="listing-header">{{listing.name}}</h1>
-        <img [src]="listing.imageUrl" [alt]="listing.name">
-        <h1 class="listing-header">Stock:{{listing.currentStock}}/{{listing.initStock}}</h1>
-        <h1 class="listing-header">Price:{{listing.cost.toLocaleString("en-US")}}</h1>
+        <img [src]="listing.image_url" [alt]="listing.name">
+        <h1 class="listing-header">Stock: {{listing.current_stock}} / {{listing.init_stock}}</h1>
+        <h1 class="listing-header">Price: {{listing.price.toLocaleString("en-US")}}</h1>
         <p class="description">{{listing.description}}</p>
-        <button *ngIf="listing.currentStock > 0" class="button">Buy Now</button>
-        <button *ngIf="listing.currentStock <= 0" class="button" disabled="true">Out of Stock</button>
+        <button *ngIf="listing.current_stock > 0 && !!this.user && this.user.token_balance >= listing.price" (click)="promptToBuyItem(listing.id)"   class="button ">Buy Now</button>
+        <button *ngIf="listing.current_stock > 0 && !this.user" class="button" (click)="openMetaMask()">Connect Wallet</button>
+        <button *ngIf="listing.current_stock > 0 && !!this.user && this.user.token_balance < listing.price" class="button disabled" disabled="true">Get yo money up!</button>
+        <button *ngIf="listing.current_stock <= 0" class="button disabled" disabled="true">Out of Stock</button>
+        <!-- <button *ngIf="!!this.user.purchases.find(( x: any) => {x === listing.id});" disabled="true">Already Purchased</button> -->
     </div>
 </div>
+
+
+<ng-container *ngIf="promptForBuy" >
+
+    <div class="panel panel-default float-panel">
+        <div class="panel-body popup-panel-body">
+            <h1 class="listing-header">Buy a {{buyListing.name}}?</h1>
+            <img class="popup-img" [src]="buyListing.image_url" [alt]="buyListing.name">
+            <h1 class="listing-header">Price: {{buyListing.price.toLocaleString("en-US")}}</h1>
+        </div>
+        <button class="button popup-btn" (click)="callBuy(buyListing);">Confirm</button>  <button class="button popup-btn" (click)="promptForBuy = !promptForBuy">Cancel</button>
+      </div>
+     
+</ng-container>
+
+<ng-container *ngIf="buySuccess" >
+
+    <div class="panel panel-default float-panel">
+        <div class="panel-body popup-panel-body">
+            <h1 class="listing-header">Succesfully purchased a {{buyListing.name}}!</h1>
+            <img class="popup-img" [src]="buyListing.image_url" [alt]="buyListing.name">
+            <h1 class="listing-header">Price: {{buyListing.price.toLocaleString("en-US")}}</h1>
+        </div>
+      <button class="button popup-btn-100" (click)="buySuccess = !buySuccess">OK</button>
+      </div>
+     
+</ng-container>
+<ng-container *ngIf="buyFail" >
+
+    <div class="panel panel-default float-panel">
+        <div class="panel-body popup-panel-body">
+            <h1 class="listing-header">Failed to purchase a {{buyListing.name}}</h1>
+            <img class="popup-img" [src]="buyListing.image_url" [alt]="buyListing.name">
+            <h1 class="listing-header">Price: {{buyListing.price.toLocaleString("en-US")}}</h1>
+        </div>
+      <button class="button popup-btn-100" (click)="buyFail = !buyFail">OK</button>
+      </div>
+     
+</ng-container>
